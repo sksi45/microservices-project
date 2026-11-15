@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -6,17 +7,17 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker build -t iiisks777/bloodyimage:adservice ."
+                        sh "docker build -t iiisks777/bloodyimage:recommendationservice ."
                     }
                 }
             }
         }
-        
+
         stage('Push Docker Image') {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker push iiisks777/bloodyimage:adservice "
+                        sh "docker push iiisks777/bloodyimage:recommendationservice"
                     }
                 }
             }
